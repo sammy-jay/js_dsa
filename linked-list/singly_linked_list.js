@@ -30,6 +30,7 @@ class SinglyLinkedList {
     if (this.head === null) {
       this.head = new Node(value);
       this.size++;
+      return
     }
     let current = this.head;
     while (current.next) {
