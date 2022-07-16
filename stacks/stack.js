@@ -1,4 +1,4 @@
-class Stack {
+ class Stack {
   constructor(array = []) {
     this.array = array;
     this._size = array.length;
@@ -16,21 +16,27 @@ class Stack {
     return this._size;
   }
 
+  // Peek - O(1)
   peek() {
     return this.array[this.getSize() - 1];
   }
 
+  // Insertion - O(1)
   push(value) {
     this.array.push(value);
     this._size++;
   }
 
+  // Deletion - O(1)
   pop() {
     this._size--;
     return this.array.pop();
   }
 }
 
+module.exports = Stack
+
+// Access - O(n)
 function getNthTopElem(stack, n) {
   const bufferArray = stack.getBuffer();
   if (n < 0) throw "Invalid nth term";
@@ -45,6 +51,7 @@ function getNthTopElem(stack, n) {
   return bufferStack.pop();
 }
 
+// Search - O(n)
 function stackSearch(stack, elem) {
   const bufferArray = stack.getBuffer();
   const bufferStack = new Stack(bufferArray);
