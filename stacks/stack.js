@@ -1,0 +1,70 @@
+class Stack {
+  constructor(array = []) {
+    this.array = array;
+    this._size = array.length;
+  }
+
+  getBuffer() {
+    return this.array.slice();
+  }
+
+  isEmpty() {
+    return this.array.length === 0;
+  }
+
+  getSize() {
+    return this._size;
+  }
+
+  peek() {
+    return this.array[this.getSize() - 1];
+  }
+
+  push(value) {
+    this.array.push(value);
+    this._size++;
+  }
+
+  pop() {
+    this._size--;
+    return this.array.pop();
+  }
+}
+
+function getNthTopElem(stack, n) {
+  const bufferArray = stack.getBuffer();
+  if (n < 0) throw "Invalid nth term";
+
+  const bufferStack = new Stack(bufferArray);
+  let i = 1;
+  while (i < n) {
+    //  (--n !== 0)
+    bufferStack.pop();
+    i++;
+  }
+  return bufferStack.pop();
+}
+
+function stackSearch(stack, elem) {
+  const bufferArray = stack.getBuffer();
+  const bufferStack = new Stack(bufferArray);
+
+  while (!bufferStack.isEmpty()) {
+    if (bufferStack.pop() === elem) {
+      return true;
+    }
+  }
+  return false;
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.push(4);
+stack.push(5);
+
+// 5 - 4 - 3 - 2 - 1
+console.log(stack);
+console.log(getNthTopElem(stack, 3));
+console.log(stackSearch(stack, 13));
