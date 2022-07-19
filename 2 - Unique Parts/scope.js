@@ -78,3 +78,12 @@ function scope7() {
 }
 
 scope7();
+
+let myName = "tolu";
+function scope8() {
+  if (true) {
+    console.log(myName)
+  }
+}
+
+scope8();
