@@ -1,3 +1,11 @@
+/**
+ * Four fundamental array operations
+ * Access - O(1)
+ * Insertion - O(n)
+ * Search - O(n) - Linear Search
+ * Deletion - O(n)
+ */
+
 let arr = [1, 2, 3, 4];
 
 // Insertion
