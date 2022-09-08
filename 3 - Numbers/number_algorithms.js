@@ -17,6 +17,7 @@ function primalityTest(n) {
   return true;
 }
 
+// Optimized version of the code above
 // T(n) => O(√n)
 function isPrime(n) {
   if (n <= 1) return false;
@@ -32,13 +33,18 @@ function isPrime(n) {
   return true;
 }
 
-
+/**
+ * This algorithm is used to print out all prime factors in a given range
+ */
 // T(n) => O(√n)
 function primeFactors(n) {
+  // prints out all the 2's, least is 3
   while (n % 2 == 0) {
     console.log(2);
     n = n / 2;
   }
+
+  // number should be odd by now, you can skip all even numbers (already taken care of)
   for (let i = 3; i * i <= n; i += 2) {
     while (n % i == 0) {
       console.log(i);
