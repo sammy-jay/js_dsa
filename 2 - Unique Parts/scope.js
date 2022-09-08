@@ -10,7 +10,7 @@ console.log(test);
 /**
  * Functional Scope
  * - This variables are declared with the var keyword
- * - This causes variable hoisting i.e using variables before they are used
+ * - This causes variable hoisting i.e using variables before they are declared
  */
 
 function scope1() {
@@ -82,7 +82,7 @@ scope7();
 let myName = "tolu";
 function scope8() {
   if (true) {
-    console.log(myName)
+    console.log(myName);
   }
 }
 
